@@ -1,0 +1,66 @@
+{
+  "name": "monsters",
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "rm -rf dist && tsc",
+    "test": "jest --coverage",
+    "lint": "tslint --project tsconfig.json",
+    "lint-fix": "tslint --project tsconfig.json --fix",
+    "prettier-fix": "prettier src/**/*.ts --write"
+  },
+  "private": true,
+  "author": {
+    "name": "Szymon Piecuch",
+    "email": "szymek.piecuch@gmail.com",
+    "url": "https://codecrafter.io"
+  },
+  "main": "dist/index.js",
+  "bin": {
+    "monsters": "./bin/monsters"
+  },
+  "dependencies": {
+    "@hapi/joi": "^15.0.3",
+    "getopts": "^2.2.5",
+    "rxjs": "^6.5.2"
+  },
+  "devDependencies": {
+    "@types/hapi__joi": "^15.0.1",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.6.0",
+    "husky": "^2.4.1",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
+    "tslint-sonarts": "^1.9.0",
+    "typescript": "^3.5.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/index.ts"
+    ],
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.ts": [
+        "npm run lint-fix --",
+        "npm run prettier-fix --",
+        "git add"
+      ]
+    }
+  },
+  "engines": {
+    "node": "12"
+  }
+}
