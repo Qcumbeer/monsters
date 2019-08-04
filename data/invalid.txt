@@ -1,0 +1,2 @@
+E north=Mu south=Aninige east=Dimilu west=Asmismu invalid=Test
+Malixo south=Enolmu east=Dixu west=Dodala

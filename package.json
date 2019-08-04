@@ -1,12 +1,14 @@
 {
   "name": "monsters",
+  "version": "1.0.0",
   "scripts": {
     "watch": "tsc --watch",
     "build": "rm -rf dist && tsc",
     "test": "jest --coverage",
     "lint": "tslint --project tsconfig.json",
     "lint-fix": "tslint --project tsconfig.json --fix",
-    "prettier-fix": "prettier src/**/*.ts --write"
+    "prettier-fix": "prettier src/**/*.ts --write",
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "private": true,
   "author": {
@@ -27,8 +29,11 @@
     "@types/hapi__joi": "^15.0.1",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.6.0",
-    "husky": "^2.4.1",
+    "coveralls": "^3.0.5",
+    "husky": "^2.7.0",
     "jest": "^24.8.0",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.2.0",
     "tslint": "^5.17.0",
@@ -39,8 +44,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/**/index.ts"
+      "src/**/*.ts"
     ],
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -52,13 +56,11 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.ts": [
-        "npm run lint-fix --",
-        "npm run prettier-fix --",
-        "git add"
-      ]
-    }
+    "*.ts": [
+      "npm run lint-fix",
+      "npm run prettier-fix",
+      "git add"
+    ]
   },
   "engines": {
     "node": "12"

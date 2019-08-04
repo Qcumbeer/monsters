@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+const getopts = require("getopts");
+const { app } = require("../dist/index");
+const { Subject } = require("rxjs");
+
+const config = getopts(process.argv.slice(2), { alias: { dataPath: "data-path" } });
+
+process.on("uncaughtException", e => {
+  process.stderr.write(`${e.message}\n`);
+});
+
+const eventBus$ = new Subject();
+eventBus$.subscribe(event => {
+  process.stdout.write(`${event}\n`);
+});
+
+app(config, eventBus$)
+  .then(() => eventBus$.unsubscribe())
+  .catch(e => {
+    process.stderr.write(`${e.message}\n`);
+  });
