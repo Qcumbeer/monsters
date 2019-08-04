@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/qcumbeer/monsters.svg?branch=master)](https://travis-ci.com/Qcumbeer/monsters)
 [![Coverage Status](https://coveralls.io/repos/github/Qcumbeer/monsters/badge.svg)](https://coveralls.io/github/Qcumbeer/monsters)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e5d6b11465e848618093fc37ed458213)](https://www.codacy.com/app/Qcumbeer/monsters)
 
 > This is the Evil monsters project - be carefull, they are very powerfull gonna destroy the world of X!
 
