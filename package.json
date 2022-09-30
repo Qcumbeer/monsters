@@ -21,7 +21,7 @@
     "monsters": "./bin/monsters"
   },
   "dependencies": {
-    "@hapi/joi": "^15.0.3",
+    "@hapi/joi": "^15.1.1",
     "getopts": "^2.2.5",
     "rxjs": "^6.5.2"
   },
